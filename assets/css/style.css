@@ -19,6 +19,10 @@ section {
   margin-top: 50px;
 }
 
+section h1 {
+  margin-bottom: 45px;
+}
+
 section div ul {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -27,6 +31,7 @@ section div ul {
       -ms-flex-pack: center;
           justify-content: center;
   padding-left: 0;
+  cursor: pointer;
 }
 
 section div ul li {
@@ -35,5 +40,34 @@ section div ul li {
       -ms-flex-align: center;
           align-items: center;
   margin: 0 5px;
+  cursor: pointer;
+}
+
+section #letters #ul_keyboard {
+  margin-left: auto;
+  margin-right: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 20px 20px;
+}
+
+@media only screen and (max-width: 478px) {
+  section {
+    margin-left: 65px;
+    margin-right: 65px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  section {
+    margin-left: 35px;
+    margin-right: 35px;
+  }
 }
 /*# sourceMappingURL=style.css.map */

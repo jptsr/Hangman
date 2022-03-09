@@ -12,17 +12,54 @@ section{
     align-items: center;
     margin-top: 50px;
 
+    h1{
+        margin-bottom: 45px;
+    }
+
+    // div{
+    //     p{
+    //         margin-bottom: 10px;
+    //     }
+    // }
+
     div{
         ul{
             display: flex;
             justify-content: center;
             padding-left: 0;
+            cursor: pointer;
 
             li{
                 list-style-type: none;
                 align-items: center;
                 margin: 0 5px;
+                cursor: pointer;
             }
         }
+    }
+
+    #letters{
+        #ul_keyboard{
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px 20px;
+        }
+    }
+}
+
+@media only screen and (max-width: 478px) {
+    section{
+        margin-left: 65px;
+        margin-right: 65px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    section{
+        margin-left: 35px;
+        margin-right: 35px;
     }
 }
