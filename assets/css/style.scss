@@ -1,0 +1,14 @@
+@import url(./font.scss);
+
+body{
+    font-family: "bahnschriff", sans-serif;
+    font-size: 15px;
+    margin: 0 auto;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
