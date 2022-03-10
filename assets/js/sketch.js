@@ -186,6 +186,18 @@ keyboard.addEventListener('click', ({target}) => {
     };
 });
 
+document.addEventListener('keydown', (e) => {
+    // console.log('keydown');
+    // console.log(e.keyCode);
+
+    if(e.keyCode >= 65 && e.keyCode <= 90){
+        // console.log('letter keydown');
+        let selectedLetter = String.fromCharCode(e.keyCode);
+        // console.log(selectedLetter);
+        matchingLetter(selectedLetter);
+    };
+});
+
 
 // CLICK => CHANGE WORD
 btn.addEventListener('click', (actual_word) => {
