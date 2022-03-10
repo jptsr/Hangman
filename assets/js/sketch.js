@@ -8,7 +8,7 @@ const btn = document.getElementById('new_word');
 // console.log(p);
 // console.log(img);
 
-let count = 0, countImg = -1, countLetter = 0;
+let count = 0, countImg = -1, countCanvas = 0, countLetter = 0;
 p.textContent = `${count} / 7`;
 
 
@@ -189,9 +189,35 @@ let matchingLetter = (letter) => {
         // console.log('nul');
         count++;
         countImg++;
+        countCanvas++;
         // console.log(count);
         p.textContent = `${count} / 7`;
         img.setAttribute('src', url[countImg]);
+
+        switch(countCanvas){
+            case 1:
+                draw1();
+                break;
+            case 2:
+                draw2();
+                break;
+            case 3:
+                draw3();
+                break;
+            case 4:
+                draw4();
+                break;
+            case 5:
+                draw5();
+                break;
+            case 6:
+                draw6();
+                break;
+            case 7:
+                draw7();
+                break;
+                
+        }
 
         if(count >= 7){
             // console.log('GAME OVER');
