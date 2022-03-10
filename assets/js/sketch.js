@@ -1,11 +1,3 @@
-/**
- * -------------------------------------------------------------------- GO FURTHER
- * keep in memory all guessed letter
- * only let the player guess a letter once
- * check keayboard recognition
- */
-
-
 const ulWord = document.getElementById('ul_word');
 const ulKeyboard = document.getElementById('ul_keyboard');
 const keyboard = document.getElementById('letters');
@@ -14,8 +6,7 @@ const img = document.getElementsByTagName('img')[0];
 const btn = document.getElementById('new_word');
 
 // console.log(p);
-console.log(img);
-
+// console.log(img);
 
 let count = 0, countImg = -1, countLetter = 0;
 p.textContent = `${count} / 7`;
@@ -116,6 +107,7 @@ let displayKeyboard = (keyboard1) => {
     keyboard1.forEach(element => {
         let li = document.createElement('li');
         li.setAttribute('id', 'keyboard');
+        li.setAttribute('class', 'keypad');
         ulKeyboard.appendChild(li);
         li.textContent = element.keyLetter;
     });
@@ -155,6 +147,27 @@ let matchingLetter = (letter) => {
         }
     });
 
+    let matchLetter = false;
+    keyboardMapping.forEach(e => {
+        if(e.keyLetter === letter){
+            console.log('letters match');
+            e.selected = true;
+            matchLetter = true;
+        }
+    });
+
+    if(matchLetter){
+        console.log(`match letter: ${matchLetter}`);
+        let li = document.getElementsByClassName('keypad');
+        // console.log(li);
+        for(let item of li){
+            if(item.innerHTML === letter){
+                console.log(item.innerHTML);
+                item.remove();
+            }
+        }
+    }
+
     if(matched){
         deleteWord();
         displayrandomWord(mapLetter);
@@ -177,6 +190,8 @@ let matchingLetter = (letter) => {
     }
 };
 
+
+// SELECTING LETTERS W/HTML
 keyboard.addEventListener('click', ({target}) => {
     // let selectedLetter = target.matches('li');
     if(target.matches('li')){
@@ -186,6 +201,8 @@ keyboard.addEventListener('click', ({target}) => {
     };
 });
 
+
+// SELECTING LETTERS W/KEYBOARD
 document.addEventListener('keydown', (e) => {
     // console.log('keydown');
     // console.log(e.keyCode);
@@ -211,10 +228,3 @@ btn.addEventListener('click', (actual_word) => {
     // let wordIsDisplayed1 = 
     // displayrandomWord(mapLetter1);
 });
-
-
-
-// créer clavier virtuel
-//  - liste de chaque lettre
-//  - display liste
-//  - permettre le click + action
