@@ -173,9 +173,11 @@ let matchingLetter = (letter) => {
 
         if(countLetter === actual_word.length){
             console.log("IT'S A WIN");
+
             deleteKeyboard();
             deleteWord();
             document.removeEventListener('keypress', keyboardPress, true);
+
             let li = document.createElement('li');
             li.setAttribute('class', 'lettersList');
             let strong = document.createElement('strong');
@@ -196,6 +198,7 @@ let matchingLetter = (letter) => {
             p.textContent = 'GAME OVER';
             deleteKeyboard();
             deleteWord();
+            document.removeEventListener('keypress', keyboardPress, true);
         }
     }
 };
@@ -215,16 +218,17 @@ keyboard.addEventListener('click', ({target}) => {
 // SELECTING LETTERS W/KEYBOARD
 let keyboardPress = (e) => {
     // console.log('keydown');
-    // console.log(e.keyCode);
-    // console.log(e.key);
+    let key = e.key;
+    let ascii = key.charCodeAt();
+    // console.log(ascii);
 
-    if(e.keyCode <= 122 && e.keyCode >= 97){
-        console.log(`letter keydown: ${e.key}`);
+    if(ascii <= 122 && ascii >= 97){
+        console.log(`letter keydown: ${key} with code ${ascii}`);
 
-        // let selectedLetter = String.fromCharCode(e.keyCode);
-        let selectedLetter = e.key;
+        let selectedLetter = String.fromCharCode(ascii);
+        // console.log(selectedLetter);
         let s_letter = selectedLetter.toUpperCase();
-        console.log(s_letter);
+        // console.log(s_letter);
         matchingLetter(s_letter);
     };
 };
