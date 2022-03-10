@@ -9,6 +9,7 @@ const btn = document.getElementById('new_word');
 // console.log(img);
 
 let count = 0, countImg = -1, countCanvas = 0, countLetter = 0;
+let alreadyLetter = [];
 p.textContent = `${count} / 7`;
 
 
@@ -134,34 +135,37 @@ let matchingLetter = (letter) => {
     // console.log('matchingLetter function is ok');
     // console.log(letter);
 
+    // console.log(alreadyLetter);
+
     let matched = false;
     mapLetter.forEach(element => {
         if(element.letter === letter){
             console.log("it's a match");
             // console.log(element);
+
             element.visible = true;
             matched = true;
             countLetter++;
-            console.log(`count letter: ${countLetter}`);
+            // console.log(`count letter: ${countLetter}`);
         }
     });
 
     let matchLetter = false;
     keyboardMapping.forEach(e => {
         if(e.keyLetter === letter){
-            console.log('letters match');
+            // console.log('letters match');
             e.selected = true;
             matchLetter = true;
         }
     });
 
     if(matchLetter){
-        console.log(`match letter: ${matchLetter}`);
+        // console.log(`match letter: ${matchLetter}`);
         let li = document.getElementsByClassName('keypad');
         // console.log(li);
         for(let item of li){
             if(item.innerHTML === letter){
-                console.log(item.innerHTML);
+                // console.log(item.innerHTML);
                 item.remove();
             }
         }
@@ -226,7 +230,7 @@ let keyboardPress = (e) => {
     // console.log(ascii);
 
     if(ascii <= 122 && ascii >= 97){
-        console.log(`letter keydown: ${key} with code ${ascii}`);
+        // console.log(`letter keydown: ${key} with code ${ascii}`);
 
         let selectedLetter = String.fromCharCode(ascii);
         // console.log(selectedLetter);
