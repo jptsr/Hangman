@@ -69,7 +69,7 @@ let createKeyboard = () => {
     // console.log('createKeyboard function is ok');
     
     let i = 0;
-    for(key = 65; key <= 90; key++){
+    for(let key = 65; key <= 90; key++){
         keyboard_letters[i] = String.fromCharCode(key);
         // console.log(keyboard_letters[i]);
         i++;       

@@ -20,7 +20,7 @@
 body {
   font-family: "bahnschriff", sans-serif;
   font-size: 15px;
-  margin: 0 auto;
+  margin: 0 15px;
   color: #1b1b1b;
 }
 
@@ -120,15 +120,16 @@ section div button {
 
 @media only screen and (max-width: 478px) {
   section {
-    margin-left: 65px;
-    margin-right: 65px;
+    margin-left: 35px;
+    margin-right: 35px;
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 478px) {
   section {
-    margin-left: 35px;
-    margin-right: 35px;
+    width: 450px;
+    margin: 0 auto;
+    margin-top: 60px;
   }
 }
 /*# sourceMappingURL=style.css.map */
