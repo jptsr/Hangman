@@ -194,30 +194,7 @@ let matchingLetter = (letter) => {
         p.textContent = `${count} / 7`;
         img.setAttribute('src', url[countImg]);
 
-        switch(countCanvas){
-            case 1:
-                draw1();
-                break;
-            case 2:
-                draw2();
-                break;
-            case 3:
-                draw3();
-                break;
-            case 4:
-                draw4();
-                break;
-            case 5:
-                draw5();
-                break;
-            case 6:
-                draw6();
-                break;
-            case 7:
-                draw7();
-                break;
-                
-        }
+        // chooseFunction();
 
         if(count >= 7){
             // console.log('GAME OVER');

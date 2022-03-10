@@ -57,14 +57,6 @@ section div div img {
   margin-bottom: 50px;
 }
 
-section div canvas {
-  background-color: white;
-  border-radius: 15px;
-  -webkit-filter: drop-shadow(0 0.2rem 0.05rem #e2e2e2);
-          filter: drop-shadow(0 0.2rem 0.05rem #e2e2e2);
-  margin-bottom: 50px;
-}
-
 section div ul {
   display: -webkit-box;
   display: -ms-flexbox;

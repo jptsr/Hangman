@@ -99,3 +99,30 @@ let draw7 = () => {
     ctx.lineTo(73, 80);
     ctx.stroke();
 };
+
+let chooseFunction = () => {
+    switch(countCanvas){
+        case 1:
+            draw1();
+            break;
+        case 2:
+            draw2();
+            break;
+        case 3:
+            draw3();
+            break;
+        case 4:
+            draw4();
+            break;
+        case 5:
+            draw5();
+            break;
+        case 6:
+            draw6();
+            break;
+        case 7:
+            draw7();
+            break;
+            
+    }
+};
