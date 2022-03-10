@@ -23,6 +23,18 @@ section h1 {
   margin-bottom: 45px;
 }
 
+section div p {
+  margin-bottom: 10px;
+}
+
+section div div img {
+  width: 150px;
+  height: 150px;
+  border-radius: 15px;
+  -webkit-filter: drop-shadow(0 0 0.2rem #e2e2e2);
+          filter: drop-shadow(0 0 0.2rem #e2e2e2);
+}
+
 section div ul {
   display: -webkit-box;
   display: -ms-flexbox;

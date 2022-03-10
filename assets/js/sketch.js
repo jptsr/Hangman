@@ -1,9 +1,7 @@
 /**
- * check if word has been found
  * -------------------------------------------------------------------- GO FURTHER
  * keep in memory all guessed letter
  * only let the player guess a letter once
- * add an image for each step
  * check keayboard recognition
  */
 
@@ -12,18 +10,22 @@ const ulWord = document.getElementById('ul_word');
 const ulKeyboard = document.getElementById('ul_keyboard');
 const keyboard = document.getElementById('letters');
 const p = document.getElementById('counter');
+const img = document.getElementsByTagName('img')[0];
 const btn = document.getElementById('new_word');
 
 // console.log(p);
+console.log(img);
 
-let count = 0;
-p.textContent = `${count} / 10`;
 
+let count = 0, countImg = -1, countLetter = 0;
+p.textContent = `${count} / 7`;
 
 
 // CHOOSE A RANDOM WORD
 let actual_word = words[Math.floor(Math.random() * words.length)];
 console.log(`actual word: ${actual_word}`);
+
+console.log(actual_word.length);
 
 
 // SPLIT RANDOM WORD IN ARRAY OF LETTERS
@@ -128,7 +130,7 @@ let finalKeyboard = displayKeyboard(keyboardMapping);
 let deleteWord = () => {
     while(ulWord.firstChild){
         ulWord.removeChild(ulWord.firstChild);
-    }
+    };
 };
 
 // let deleteKeyboard = () => {
@@ -148,19 +150,27 @@ let matchingLetter = (letter) => {
             // console.log(element);
             element.visible = true;
             matched = true;
+            countLetter++;
+            console.log(`count letter: ${countLetter}`);
         }
     });
 
     if(matched){
         deleteWord();
         displayrandomWord(mapLetter);
+
+        if(countLetter === actual_word.length){
+            console.log("IT'S A WIN");
+        }
     }else{
         // console.log('nul');
         count++;
+        countImg++;
         // console.log(count);
-        p.textContent = `${count}/10`;
+        p.textContent = `${count}/7`;
+        img.setAttribute('src', url[countImg]);
 
-        if(count >= 10){
+        if(count >= 7){
             // console.log('GAME OVER');
             p.textContent = 'GAME OVER';
         }
@@ -176,8 +186,6 @@ keyboard.addEventListener('click', ({target}) => {
     };
 });
 
-// matchingLetter(mapLetter, finalKeyboard);
-
 
 // CLICK => CHANGE WORD
 btn.addEventListener('click', (actual_word) => {
@@ -191,6 +199,8 @@ btn.addEventListener('click', (actual_word) => {
     // let wordIsDisplayed1 = 
     // displayrandomWord(mapLetter1);
 });
+
+
 
 // créer clavier virtuel
 //  - liste de chaque lettre
