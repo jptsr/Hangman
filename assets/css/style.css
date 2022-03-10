@@ -129,7 +129,16 @@ section div button {
   section {
     width: 450px;
     margin: 0 auto;
-    margin-top: 60px;
+    margin-top: 40px;
+  }
+  section div p {
+    margin-bottom: 95px;
+  }
+  section div div img {
+    margin-bottom: 65px;
+  }
+  section #letters {
+    margin-bottom: 45px;
   }
 }
 /*# sourceMappingURL=style.css.map */

@@ -174,6 +174,14 @@ let matchingLetter = (letter) => {
         if(countLetter === actual_word.length){
             console.log("IT'S A WIN");
             deleteKeyboard();
+            deleteWord();
+            document.removeEventListener('keypress', keyboardPress, true);
+            let li = document.createElement('li');
+            li.setAttribute('class', 'lettersList');
+            let strong = document.createElement('strong');
+            ulWord.appendChild(li);
+            li.appendChild(strong);
+            strong.textContent = actual_word;
         }
     }else{
         // console.log('nul');
@@ -205,7 +213,7 @@ keyboard.addEventListener('click', ({target}) => {
 
 
 // SELECTING LETTERS W/KEYBOARD
-document.addEventListener('keypress', (e) => {
+let keyboardPress = (e) => {
     // console.log('keydown');
     // console.log(e.keyCode);
     // console.log(e.key);
@@ -219,7 +227,9 @@ document.addEventListener('keypress', (e) => {
         console.log(s_letter);
         matchingLetter(s_letter);
     };
-});
+};
+
+document.addEventListener('keypress', keyboardPress, true);
 
 
 // CLICK => CHANGE WORD
