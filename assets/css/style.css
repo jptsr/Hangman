@@ -1,8 +1,27 @@
 @import url(./font.scss);
+.colorBtn, section #letters #ul_keyboard li, section div button {
+  background-color: white;
+  -webkit-filter: drop-shadow(0 0.2rem 0.05rem #e2e2e2);
+          filter: drop-shadow(0 0.2rem 0.05rem #e2e2e2);
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: all 0.2 ease-in-out;
+  transition: all 0.2 ease-in-out;
+}
+
+.colorBtnHover, section #letters #ul_keyboard li:hover, section div button:hover {
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+  -webkit-transition: all 0.5 ease-in-out;
+  transition: all 0.5 ease-in-out;
+}
+
+/* ------------------------------------------------------------------------------------------------ */
 body {
   font-family: "bahnschriff", sans-serif;
   font-size: 15px;
   margin: 0 auto;
+  color: #1b1b1b;
 }
 
 section {
@@ -16,23 +35,26 @@ section {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 50px;
+  margin-top: 45px;
 }
 
-section h1 {
-  margin-bottom: 45px;
+section div h1 {
+  margin-bottom: auto;
 }
 
 section div p {
-  margin-bottom: 10px;
+  font-size: 0.8em;
+  margin-top: 0;
+  margin-bottom: 80px;
 }
 
 section div div img {
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   border-radius: 15px;
-  -webkit-filter: drop-shadow(0 0 0.2rem #e2e2e2);
-          filter: drop-shadow(0 0 0.2rem #e2e2e2);
+  -webkit-filter: drop-shadow(0 0.2rem 0.05rem #e2e2e2);
+          filter: drop-shadow(0 0.2rem 0.05rem #e2e2e2);
+  margin-bottom: 50px;
 }
 
 section div ul {
@@ -55,6 +77,10 @@ section div ul li {
   cursor: pointer;
 }
 
+section #letters {
+  margin-bottom: 35px;
+}
+
 section #letters #ul_keyboard {
   margin-left: auto;
   margin-right: auto;
@@ -66,7 +92,30 @@ section #letters #ul_keyboard {
           justify-content: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  gap: 20px 20px;
+  gap: 15px 15px;
+}
+
+section #letters #ul_keyboard li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 5px;
+  width: 1.5em;
+  height: 1.5em;
+}
+
+section div button {
+  height: auto;
+  width: auto;
+  padding: 7.5px 25px;
+  border-radius: 5px;
+  border: none;
 }
 
 @media only screen and (max-width: 478px) {

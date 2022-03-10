@@ -15,7 +15,6 @@ p.textContent = `${count} / 7`;
 // CHOOSE A RANDOM WORD
 let actual_word = words[Math.floor(Math.random() * words.length)];
 console.log(`actual word: ${actual_word}`);
-
 console.log(actual_word.length);
 
 
@@ -70,8 +69,8 @@ let createKeyboard = () => {
     // console.log('createKeyboard function is ok');
     
     let i = 0;
-    for(keyCode = 65; keyCode <= 90; keyCode++){
-        keyboard_letters[i] = String.fromCharCode(keyCode);
+    for(key = 65; key <= 90; key++){
+        keyboard_letters[i] = String.fromCharCode(key);
         // console.log(keyboard_letters[i]);
         i++;       
     }
@@ -125,11 +124,11 @@ let deleteWord = () => {
     };
 };
 
-// let deleteKeyboard = () => {
-//     while(ulKeyboard.firstChild){
-//         ulKeyboard.removeChild(ulKeyboard.firstChild);
-//     }
-// };
+let deleteKeyboard = () => {
+    while(ulKeyboard.firstChild){
+        ulKeyboard.removeChild(ulKeyboard.firstChild);
+    }
+};
 
 let matchingLetter = (letter) => {
     // console.log('matchingLetter function is ok');
@@ -174,18 +173,21 @@ let matchingLetter = (letter) => {
 
         if(countLetter === actual_word.length){
             console.log("IT'S A WIN");
+            deleteKeyboard();
         }
     }else{
         // console.log('nul');
         count++;
         countImg++;
         // console.log(count);
-        p.textContent = `${count}/7`;
+        p.textContent = `${count} / 7`;
         img.setAttribute('src', url[countImg]);
 
         if(count >= 7){
             // console.log('GAME OVER');
             p.textContent = 'GAME OVER';
+            deleteKeyboard();
+            deleteWord();
         }
     }
 };
@@ -203,28 +205,24 @@ keyboard.addEventListener('click', ({target}) => {
 
 
 // SELECTING LETTERS W/KEYBOARD
-document.addEventListener('keydown', (e) => {
+document.addEventListener('keypress', (e) => {
     // console.log('keydown');
     // console.log(e.keyCode);
+    // console.log(e.key);
 
-    if(e.keyCode >= 65 && e.keyCode <= 90){
-        // console.log('letter keydown');
-        let selectedLetter = String.fromCharCode(e.keyCode);
-        // console.log(selectedLetter);
-        matchingLetter(selectedLetter);
+    if(e.keyCode <= 122 && e.keyCode >= 97){
+        console.log(`letter keydown: ${e.key}`);
+
+        // let selectedLetter = String.fromCharCode(e.keyCode);
+        let selectedLetter = e.key;
+        let s_letter = selectedLetter.toUpperCase();
+        console.log(s_letter);
+        matchingLetter(s_letter);
     };
 });
 
 
 // CLICK => CHANGE WORD
-btn.addEventListener('click', (actual_word) => {
-    // actual_word = words[Math.floor(Math.random() * words.length)];
-    // console.log(`actual word: ${actual_word}`);
-    // return actual_word;
-
+btn.addEventListener('click', () => {
     document.location.reload();
-
-    // let mapLetter1 = mappingLetter(actual_word);
-    // let wordIsDisplayed1 = 
-    // displayrandomWord(mapLetter1);
 });
