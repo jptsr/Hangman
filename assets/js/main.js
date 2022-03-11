@@ -3,46 +3,75 @@ const ulKeyboard = document.getElementById('ul_keyboard');
 const keyboard = document.getElementById('letters');
 const p = document.getElementById('counter');
 const img = document.getElementsByTagName('img')[0];
+
 const btn = document.getElementById('new_word');
+
+const div_btn1 = document.getElementsByClassName('divBtn_first')[0];
+const btn_easy = document.getElementById('easy');
+const btn_info = document.getElementById('informatic');
+const btn_becode = document.getElementById('becode');
+const btn_hard = document.getElementById('hard');
 const btn_menu = document.getElementById('menu');
 
-// console.log(p);
-// console.log(img);
+const img_count_div = document.getElementsByClassName('count_img')[0];
+const word_div = document.getElementsByClassName('word')[0];
+const keyboard_div = document.getElementById('letters');
+const div_btn2 = document.getElementsByClassName('divBtn_second')[0];
 
+let rd_word, actual_word;
 let keyboard_letters = [];
 let already_used = ['5'];
 let count = 0, countImg = -1, countCanvas = 0, countLetter = 0;
+let arrEasy = false, arrInfo = false, arrBecode = false, arrHard = false;
+
+let mapLetter, wordIsDisplayed, keyboard_created, keyboardMapping, finalKeyboard;
 
 p.textContent = `${count} / 7`;
 
 
-// CHOOSE A RANDOM WORD
-let rd_word = words[Math.floor(Math.random() * words.length)];
-let actual_word = rd_word.toUpperCase();
-console.log(`actual word: ${actual_word}`);
-console.log(actual_word.length);
+// LEVEL BTN
+btn_easy.addEventListener('click', () => {
 
+    arrEasy = true;
+    arrInfo = false;
+    arrBecode = false;
+    arrHard = false;
 
-// SPLIT RANDOM WORD IN ARRAY OF LETTERS
-// MAP ARRAY IN OBJECT WITH LETTER & VISIBLE PROPERTIES
-let mapLetter = mappingLetter(actual_word);
-console.log(mapLetter); // notation: console.log(`map letter: ${mapLetter}`) renvoie [object object]
+    levelBtn();
+    randomWord();
+});
 
+btn_info.addEventListener('click', () => {
 
-// DISPLAY WORD'S LETTERS AS A LIST
-let wordIsDisplayed = displayrandomWord(mapLetter);
+    arrEasy = false;
+    arrInfo = true;
+    arrBecode = false;
+    arrHard = false;
+    
+    levelBtn();
+    randomWord();
+});
 
+btn_becode.addEventListener('click', () => {
 
-// CREATE KEYBOARD
-let keyboard_created = createKeyboard();
+    arrEasy = false;
+    arrInfo = false;
+    arrBecode = true;
+    arrHard = false;
 
+    levelBtn();
+    randomWord();
+});
 
-// MAP KEYBOARD
-let keyboardMapping = mapKeyboard(keyboard_created);
+btn_hard.addEventListener('click', () => {
+    arrEasy = false;
+    arrInfo = false;
+    arrBecode = false;
+    arrHard = true;
 
-
-// DISPLAY KEYBOARD
-let finalKeyboard = displayKeyboard(keyboardMapping);
+    levelBtn();
+    randomWord();
+});
 
 
 // SELECTING LETTER IS MATCHING WORD'S LETTER ?
@@ -87,7 +116,10 @@ document.addEventListener('keyup', keyboardPress, true);
 
 // CLICK => CHANGE WORD
 btn.addEventListener('click', () => {
-    document.location.reload();
+    console.clear();
+    reset();
+    randomWord();
 });
 
-// window.location.replace("Home/Home.html"));
+
+btn_menu.addEventListener('click', () => {document.location.reload()});

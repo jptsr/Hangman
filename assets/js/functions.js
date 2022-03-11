@@ -1,3 +1,37 @@
+// LEVEL BTN
+let levelBtn = () => {
+    p.removeAttribute('class', 'hide');
+    div_btn1.setAttribute('class', 'hide');
+    img_count_div.removeAttribute('class', 'hide');
+    img_count_div.setAttribute('class', 'count_img');
+    word_div.removeAttribute('class', 'hide');
+    word_div.setAttribute('class', 'word');
+    ulKeyboard.removeAttribute('class', 'hide');
+    keyboard_div.removeAttribute('class', 'hide');
+    div_btn2.removeAttribute('class', 'hide');
+    div_btn2.setAttribute('class', 'div_btn divBtn_second');
+    btn.removeAttribute('class', 'hide');
+    btn_menu.removeAttribute('class', 'hide');
+};
+
+// FUNCTION RESTET
+let reset = () => {
+    count = 0;
+    countImg = -1;
+    countCanvas = 0;
+    countLetter = 0;
+    already_used = ['5'];
+
+    p.textContent = `${count} / 7`;
+    img.setAttribute('src', './assets/image/Untitled_Artwork0.png');
+
+    document.addEventListener('keyup', keyboardPress, true);
+
+    deleteWord();
+    deleteKeyboard();
+};
+
+
 // SPLIT RANDOM WORD IN ARRAY OF LETTERS
 // MAP ARRAY IN OBJECT WITH LETTER & VISIBLE PROPERTIES
 let mappingLetter = (word) => {
@@ -156,8 +190,6 @@ let matchingLetter = (letter) => {
             ulWord.appendChild(li);
             li.appendChild(strong);
             strong.textContent = actual_word;
-
-            btn_menu.removeAttribute('class', 'hide');
         }
     }else{
         // console.log('nul');
@@ -182,7 +214,6 @@ let matchingLetter = (letter) => {
             li.setAttribute('class', 'lettersList');
             ulWord.appendChild(li);
             li.textContent = `The word was: ${actual_word}.`;
-            btn_menu.removeAttribute('class', 'hide');
         }
     }
 };
@@ -228,8 +259,6 @@ let keyboardPress = (e) => {
                     li.setAttribute('class', 'lettersList');
                     ulWord.appendChild(li);
                     li.textContent = `The word was: ${actual_word}.`;
-
-                    btn_menu.removeAttribute('class', 'hide');
                 }
             }
         });
@@ -240,5 +269,82 @@ let keyboardPress = (e) => {
             console.log(already_used);
             matchingLetter(s_letter);
         }
+    };
+};
+
+
+// START THE GAME
+let startTheGame = () => {
+    document.addEventListener('keyup', keyboardPress, true);
+
+    // SPLIT RANDOM WORD IN ARRAY OF LETTERS
+    // MAP ARRAY IN OBJECT WITH LETTER & VISIBLE PROPERTIES
+    mapLetter = mappingLetter(actual_word);
+    console.log(mapLetter); // notation: console.log(`map letter: ${mapLetter}`) renvoie [object object]
+
+
+    // DISPLAY WORD'S LETTERS AS A LIST
+    wordIsDisplayed = displayrandomWord(mapLetter);
+
+
+    // CREATE KEYBOARD
+    keyboard_created = createKeyboard();
+
+
+    // MAP KEYBOARD
+    keyboardMapping = mapKeyboard(keyboard_created);
+
+
+    // DISPLAY KEYBOARD
+    finalKeyboard = displayKeyboard(keyboardMapping);
+};
+
+
+// CHOOSE A RANDOM WORD
+let randomWord = () => {
+    // console.log('random word function is ok');
+
+    if(arrEasy){
+        console.log('easy');
+
+        rd_word = easy_words[Math.floor(Math.random() * easy_words.length)];
+        actual_word = rd_word.toUpperCase();
+        console.log(`actual word: ${actual_word}`);
+        console.log(actual_word.length);
+
+        startTheGame();
+    };
+
+    if(arrInfo){
+        console.log('informatic');
+
+        rd_word = p_word[Math.floor(Math.random() * p_word.length)];
+        actual_word = rd_word.toUpperCase();
+        console.log(`actual word: ${actual_word}`);
+        console.log(actual_word.length);
+
+        startTheGame();
+    };
+
+    if(arrBecode){
+        console.log('becode');
+
+        rd_word = becode[Math.floor(Math.random() * becode.length)];
+        actual_word = rd_word.toUpperCase();
+        console.log(`actual word: ${actual_word}`);
+        console.log(actual_word.length);
+
+        startTheGame();
+    };
+
+    if(arrHard){
+        console.log('hard');
+
+        rd_word = words[Math.floor(Math.random() * words.length)];
+        actual_word = rd_word.toUpperCase();
+        console.log(`actual word: ${actual_word}`);
+        console.log(actual_word.length);
+
+        startTheGame();
     };
 };

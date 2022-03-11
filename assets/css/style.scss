@@ -28,12 +28,16 @@ body{
     font-size: 19px;
     margin: 0 15px;
     color: $color1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 section{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     margin-top: 45px;
     margin-bottom: 65px;
 
@@ -50,7 +54,7 @@ section{
         }
     }
 
-    .first_div_btn{
+    .divBtn_first{
         margin-top: 70px;
     }
 
@@ -160,7 +164,7 @@ section{
 @media only screen and (min-width: 478px) {
     section{
         width: 450px;
-        margin: 0 auto;
+        margin: auto auto;
         margin-top: 40px;
         margin-bottom: 60px;
 
@@ -181,5 +185,13 @@ section{
         #letters{
             margin-bottom: 45px;
         }
+    }
+}
+
+@media only screen and (min-width: 688px) {
+    section{
+        width: 600px;
+        margin-top: 40px;
+        margin-bottom: 60px;
     }
 }

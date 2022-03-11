@@ -26,6 +26,15 @@ body {
   font-size: 19px;
   margin: 0 15px;
   color: #1b1b1b;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 section {
@@ -39,6 +48,9 @@ section {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin-top: 45px;
   margin-bottom: 65px;
 }
@@ -54,7 +66,7 @@ section div p {
   margin-bottom: 80px;
 }
 
-section .first_div_btn {
+section .divBtn_first {
   margin-top: 70px;
 }
 
@@ -165,7 +177,7 @@ section .div_btn button .strg {
 @media only screen and (min-width: 478px) {
   section {
     width: 450px;
-    margin: 0 auto;
+    margin: auto auto;
     margin-top: 40px;
     margin-bottom: 60px;
   }
@@ -177,6 +189,14 @@ section .div_btn button .strg {
   }
   section #letters {
     margin-bottom: 45px;
+  }
+}
+
+@media only screen and (min-width: 688px) {
+  section {
+    width: 600px;
+    margin-top: 40px;
+    margin-bottom: 60px;
   }
 }
 /*# sourceMappingURL=style.css.map */
