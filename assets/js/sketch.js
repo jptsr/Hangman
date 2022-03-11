@@ -176,7 +176,8 @@ let matchingLetter = (letter) => {
         displayrandomWord(mapLetter);
 
         if(countLetter === actual_word.length){
-            console.log("IT'S A WIN");
+            // console.log("IT'S A WIN");
+            p.textContent = "IT'S A WIN";
 
             deleteKeyboard();
             deleteWord();
@@ -206,6 +207,13 @@ let matchingLetter = (letter) => {
             deleteKeyboard();
             deleteWord();
             document.removeEventListener('keypress', keyboardPress, true);
+
+            let li = document.createElement('li');
+            li.setAttribute('class', 'lettersList');
+            // let strong = document.createElement('strong');
+            ulWord.appendChild(li);
+            // li.appendChild(strong);
+            li.textContent = `The word was: ${actual_word}.`;
         }
     }
 };

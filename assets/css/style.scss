@@ -1,8 +1,8 @@
 @import url(./font.scss);
 
 $color1: #1b1b1b;
-$color2: rgb(226, 226, 226);
-$color3: white;
+$color2: rgb(240, 240, 240);
+$color3: rgb(254.3, 254.3, 254.3);
 $color4: rgb(54, 54, 54);
 
 .colorBtn{
@@ -21,7 +21,7 @@ $color4: rgb(54, 54, 54);
 
 body{
     font-family: "bahnschriff", sans-serif;
-    font-size: 15px;
+    font-size: 19px;
     margin: 0 15px;
     color: $color1;
 }
@@ -31,14 +31,16 @@ section{
     flex-direction: column;
     align-items: center;
     margin-top: 45px;
+    margin-bottom: 65px;
 
     div{
         h1{
             margin-bottom: auto;
+            font-size: 35px;
         }
     
         p{
-            font-size: 0.8em;
+            font-size: 0.6em;
             margin-top: 0;
             margin-bottom: 80px;
         }
@@ -77,6 +79,11 @@ section{
                 margin: 0 5px;
                 cursor: pointer;
             }
+
+            .lettersList{
+                align-items: center;
+                font-size: 0.8em;
+            }
         }
     }
 
@@ -89,16 +96,17 @@ section{
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 15px 15px;
+            gap: 1em 1em;
 
             li{
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 border-radius: 5px;
-                width: 1.5em;
-                height: 1.5em;
+                width: 2.1em;
+                height: 2.1em;
                 @extend .colorBtn;
+                font-size: 0.9em;
 
                 &:hover{
                     @extend .colorBtnHover;
@@ -111,13 +119,18 @@ section{
         button{
             height: auto;
             width: auto;
-            padding: 7.5px 25px;
+            padding: 13px 35px;
             border-radius: 5px;
             border: none;
             @extend .colorBtn;
+            cursor: pointer;
 
             &:hover{
                 @extend .colorBtnHover;
+            }
+
+            .strg{
+                margin-left: 15px;
             }
         }
     }
