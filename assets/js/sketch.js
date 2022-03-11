@@ -223,7 +223,27 @@ keyboard.addEventListener('click', ({target}) => {
     if(target.matches('li')){
         // console.log(`touché: ${target.innerHTML}`);
         let selectedLetter = target.innerHTML;
-        matchingLetter(selectedLetter);
+
+        let picked = false;
+        already_used.forEach(el => {
+            if(el === selectedLetter){
+                console.log('letter already used');
+                picked = true;
+                count++;
+                countImg++;
+                p.textContent = `${count} / 7`;
+                img.setAttribute('src', url[countImg]);
+            }
+        });
+
+        if(picked === false){
+            console.log('letter is yet to use');
+            already_used.push(selectedLetter);
+            console.log(already_used);
+            matchingLetter(selectedLetter);
+        }
+
+        // matchingLetter(selectedLetter);
     };
 });
 
