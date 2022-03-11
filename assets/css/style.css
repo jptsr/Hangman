@@ -1,5 +1,5 @@
 @import url(./font.scss);
-.colorBtn, section #letters #ul_keyboard li, section div button {
+.colorBtn, section #letters #ul_keyboard li, section .div_btn button {
   background-color: #fefefe;
   -webkit-filter: drop-shadow(0 0.2rem 0.05rem #f0f0f0);
           filter: drop-shadow(0 0.2rem 0.05rem #f0f0f0);
@@ -9,7 +9,7 @@
   transition: all 0.2 ease-in-out;
 }
 
-.colorBtnHover, section #letters #ul_keyboard li:hover, section div button:hover {
+.colorBtnHover, section #letters #ul_keyboard li:hover, section .div_btn button:hover {
   -webkit-transform: scale(1.15);
           transform: scale(1.15);
   -webkit-transition: all 0.5 ease-in-out;
@@ -48,13 +48,14 @@ section div h1 {
   font-size: 35px;
 }
 
-section div #counter {
+section div p {
   font-size: 0.6em;
   margin-top: 0;
   margin-bottom: 80px;
-  text-align: left;
-  margin-left: 0;
-  padding-left: 0;
+}
+
+section .first_div_btn {
+  margin-top: 70px;
 }
 
 section div div img {
@@ -127,7 +128,7 @@ section #letters #ul_keyboard li {
   font-size: 0.9em;
 }
 
-section div {
+section .div_btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -141,7 +142,7 @@ section div {
   gap: 1em;
 }
 
-section div button {
+section .div_btn button {
   height: 50px;
   width: 250px;
   border-radius: 5px;
@@ -150,7 +151,7 @@ section div button {
   color: #1b1b1b;
 }
 
-section div button .strg {
+section .div_btn button .strg {
   margin-left: 15px;
 }
 
