@@ -208,9 +208,7 @@ let matchingLetter = (letter) => {
 
             let li = document.createElement('li');
             li.setAttribute('class', 'lettersList');
-            // let strong = document.createElement('strong');
             ulWord.appendChild(li);
-            // li.appendChild(strong);
             li.textContent = `The word was: ${actual_word}.`;
         }
     }
@@ -242,8 +240,6 @@ keyboard.addEventListener('click', ({target}) => {
             console.log(already_used);
             matchingLetter(selectedLetter);
         }
-
-        // matchingLetter(selectedLetter);
     };
 });
 
@@ -274,6 +270,19 @@ let keyboardPress = (e) => {
                 countImg++;
                 p.textContent = `${count} / 7`;
                 img.setAttribute('src', url[countImg]);
+
+                if(count >= 7){
+                    // console.log('GAME OVER');
+                    p.textContent = 'GAME OVER';
+                    deleteKeyboard();
+                    deleteWord();
+                    document.removeEventListener('keyup', keyboardPress, true);
+        
+                    let li = document.createElement('li');
+                    li.setAttribute('class', 'lettersList');
+                    ulWord.appendChild(li);
+                    li.textContent = `The word was: ${actual_word}.`;
+                }
             }
         });
 
