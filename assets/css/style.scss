@@ -17,6 +17,10 @@ $color4: rgb(54, 54, 54);
     transition: all 0.5 ease-in-out;
 }
 
+.hide{
+    display: none;
+}
+
 /* ------------------------------------------------------------------------------------------------ */
 
 body{
@@ -39,10 +43,13 @@ section{
             font-size: 35px;
         }
     
-        p{
+        #counter{
             font-size: 0.6em;
             margin-top: 0;
             margin-bottom: 80px;
+            text-align: left;
+            margin-left: 0;
+            padding-left: 0;
         }
     }
 
@@ -116,10 +123,15 @@ section{
     }
 
     div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+
         button{
-            height: auto;
-            width: auto;
-            padding: 13px 35px;
+            height: 50px;
+            width: 250px;
+            // padding: 13px 35px;
             border-radius: 5px;
             border: none;
             @extend .colorBtn;

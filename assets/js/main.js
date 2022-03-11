@@ -4,6 +4,7 @@ const keyboard = document.getElementById('letters');
 const p = document.getElementById('counter');
 const img = document.getElementsByTagName('img')[0];
 const btn = document.getElementById('new_word');
+const btn_menu = document.getElementById('menu');
 
 // console.log(p);
 // console.log(img);
@@ -13,7 +14,8 @@ p.textContent = `${count} / 7`;
 
 
 // CHOOSE A RANDOM WORD
-let actual_word = words[Math.floor(Math.random() * words.length)];
+let rd_word = words[Math.floor(Math.random() * words.length)];
+let actual_word = rd_word.toUpperCase();
 console.log(`actual word: ${actual_word}`);
 console.log(actual_word.length);
 
@@ -186,6 +188,8 @@ let matchingLetter = (letter) => {
             ulWord.appendChild(li);
             li.appendChild(strong);
             strong.textContent = actual_word;
+
+            btn_menu.removeAttribute('class', 'hide');
         }
     }else{
         // console.log('nul');
@@ -210,6 +214,7 @@ let matchingLetter = (letter) => {
             li.setAttribute('class', 'lettersList');
             ulWord.appendChild(li);
             li.textContent = `The word was: ${actual_word}.`;
+            btn_menu.removeAttribute('class', 'hide');
         }
     }
 };
@@ -288,6 +293,8 @@ let keyboardPress = (e) => {
                     li.setAttribute('class', 'lettersList');
                     ulWord.appendChild(li);
                     li.textContent = `The word was: ${actual_word}.`;
+
+                    btn_menu.removeAttribute('class', 'hide');
                 }
             }
         });
@@ -308,3 +315,6 @@ document.addEventListener('keyup', keyboardPress, true);
 btn.addEventListener('click', () => {
     document.location.reload();
 });
+
+
+// window.location.replace("Home/Home.html"));
