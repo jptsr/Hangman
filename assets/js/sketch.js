@@ -9,7 +9,6 @@ const btn = document.getElementById('new_word');
 // console.log(img);
 
 let count = 0, countImg = -1, countCanvas = 0, countLetter = 0;
-let alreadyLetter = [];
 p.textContent = `${count} / 7`;
 
 
@@ -26,7 +25,7 @@ let mappingLetter = (word) => {
     console.log(`letter array: ${split_word}`);
 
     let lettersToMap = split_word.map((letter) => {
-        return /*isMapped =*/{
+        return {
             letter,
             visible: false
         } 
@@ -135,12 +134,10 @@ let matchingLetter = (letter) => {
     // console.log('matchingLetter function is ok');
     // console.log(letter);
 
-    // console.log(alreadyLetter);
-
     let matched = false;
     mapLetter.forEach(element => {
         if(element.letter === letter){
-            console.log("it's a match");
+            // console.log("it's a match");
             // console.log(element);
 
             element.visible = true;
@@ -181,7 +178,7 @@ let matchingLetter = (letter) => {
 
             deleteKeyboard();
             deleteWord();
-            document.removeEventListener('keypress', keyboardPress, true);
+            document.removeEventListener('keyup', keyboardPress, true);
 
             let li = document.createElement('li');
             li.setAttribute('class', 'lettersList');
@@ -199,6 +196,7 @@ let matchingLetter = (letter) => {
         p.textContent = `${count} / 7`;
         img.setAttribute('src', url[countImg]);
 
+        // canvas
         // chooseFunction();
 
         if(count >= 7){
@@ -206,7 +204,7 @@ let matchingLetter = (letter) => {
             p.textContent = 'GAME OVER';
             deleteKeyboard();
             deleteWord();
-            document.removeEventListener('keypress', keyboardPress, true);
+            document.removeEventListener('keyup', keyboardPress, true);
 
             let li = document.createElement('li');
             li.setAttribute('class', 'lettersList');
@@ -231,6 +229,7 @@ keyboard.addEventListener('click', ({target}) => {
 
 
 // SELECTING LETTERS W/KEYBOARD
+let already_used = ['5'];
 let keyboardPress = (e) => {
     // console.log('keydown');
     let key = e.key;
@@ -243,12 +242,31 @@ let keyboardPress = (e) => {
         let selectedLetter = String.fromCharCode(ascii);
         // console.log(selectedLetter);
         let s_letter = selectedLetter.toUpperCase();
-        // console.log(s_letter);
-        matchingLetter(s_letter);
+        console.log('typed letter : ' + s_letter);
+        
+
+        let picked = false;
+        already_used.forEach(el => {
+            if(el === s_letter){
+                console.log('letter already used');
+                picked = true;
+                count++;
+                countImg++;
+                p.textContent = `${count} / 7`;
+                img.setAttribute('src', url[countImg]);
+            }
+        });
+
+        if(picked === false){
+            console.log('letter is yet to use');
+            already_used.push(s_letter);
+            console.log(already_used);
+            matchingLetter(s_letter);
+        }
     };
 };
 
-document.addEventListener('keypress', keyboardPress, true);
+document.addEventListener('keyup', keyboardPress, true);
 
 
 // CLICK => CHANGE WORD
