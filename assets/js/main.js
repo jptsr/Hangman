@@ -231,6 +231,9 @@ keyboard.addEventListener('click', ({target}) => {
                 countImg++;
                 p.textContent = `${count} / 7`;
                 img.setAttribute('src', url[countImg]);
+
+                // canvas
+                // chooseFunction();
             }
         });
 
@@ -270,6 +273,9 @@ let keyboardPress = (e) => {
                 countImg++;
                 p.textContent = `${count} / 7`;
                 img.setAttribute('src', url[countImg]);
+                
+                // canvas
+                // chooseFunction();
 
                 if(count >= 7){
                     // console.log('GAME OVER');

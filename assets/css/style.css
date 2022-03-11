@@ -127,6 +127,7 @@ section div button {
   border-radius: 5px;
   border: none;
   cursor: pointer;
+  color: #1b1b1b;
 }
 
 section div button .strg {

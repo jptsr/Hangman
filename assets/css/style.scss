@@ -124,6 +124,7 @@ section{
             border: none;
             @extend .colorBtn;
             cursor: pointer;
+            color: $color1;
 
             &:hover{
                 @extend .colorBtnHover;
